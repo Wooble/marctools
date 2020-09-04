@@ -9,5 +9,5 @@ setup(
     author="Geoffrey Spear",
     author_email="speargh@pitt.edu",
     description="Command line tools for MARC21 records",
-    install_requires=["pymarc"],
+    install_requires=["pymarc", "click"],
 )
