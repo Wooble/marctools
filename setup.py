@@ -10,4 +10,9 @@ setup(
     author_email="speargh@pitt.edu",
     description="Command line tools for MARC21 records",
     install_requires=["pymarc", "click"],
+    entry_points={
+        "console_scripts": [
+            "marccount = marctools.marccount:marccount",
+        ]
+    },
 )
