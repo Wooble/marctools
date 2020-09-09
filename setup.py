@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 setup(
     name="marctools",
-    version="0.1",
-    packages=[""],
+    version="0.1.2",
+    packages=find_packages(),
     url="",
     license="MIT",
     author="Geoffrey Spear",
@@ -13,6 +13,7 @@ setup(
     entry_points={
         "console_scripts": [
             "marccount = marctools.marccount:marccount",
+            "marcpager = marctools.marcpager:marcpager",
         ]
     },
 )
