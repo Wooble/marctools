@@ -26,26 +26,31 @@ FILE_END = """
 </html>
 """
 
+
 def html_compare(file1, file2, outfile):
     """Compare 2 files of MARC records and write HTML diff"""
-    with open(file1, 'rb') as f1, open(file2, 'rb') as f2, open(outfile, 'w', encoding='utf-8') as out:
+    with open(file1, "rb") as f1, open(file2, "rb") as f2, open(
+        outfile, "w", encoding="utf-8"
+    ) as out:
         out.write(FILE_START)
         r1 = pymarc.MARCReader(f1)
         r2 = pymarc.MARCReader(f2)
 
         rec2 = next(r2)
         for rec1 in r1:
-            rec_id = rec1['001'].data
+            rec_id = rec1["001"].data
 
-            if rec2['001'].data != rec_id:
+            if rec2["001"].data != rec_id:
                 pass
-                #out.write(difflib.HtmlDiff().make_table(str(rec1).splitlines(), ['']))
+                # out.write(difflib.HtmlDiff().make_table(str(rec1).splitlines(), ['']))
             else:
-                out.write(difflib.HtmlDiff(wrapcolumn=85).make_table(str(rec1).splitlines(), str(rec2).splitlines(), context=True))
+                out.write(
+                    difflib.HtmlDiff(wrapcolumn=85).make_table(
+                        str(rec1).splitlines(), str(rec2).splitlines(), context=True
+                    )
+                )
                 try:
                     rec2 = next(r2)
                 except StopIteration:
                     pass
         out.write(FILE_END)
-
-
