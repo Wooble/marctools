@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="marctools",
-    version="0.1.2",
+    version="0.2.0",
     packages=find_packages(),
     url="",
     license="MIT",
@@ -14,6 +14,7 @@ setup(
         "console_scripts": [
             "marccount = marctools.marccount:marccount",
             "marcpager = marctools.marcpager:marcpager",
+            "marcdiff = marctools.marcdiff.cli:run",
         ]
     },
 )
