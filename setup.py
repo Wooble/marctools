@@ -4,7 +4,7 @@ setup(
     name="marctools",
     version="0.2.0",
     packages=find_packages(),
-    url="",
+    url="https://github.com/Wooble/marctools",
     license="MIT",
     author="Geoffrey Spear",
     author_email="speargh@pitt.edu",
