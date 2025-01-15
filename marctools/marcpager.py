@@ -9,7 +9,7 @@ import pymarc
 @click.command()
 @click.argument("filename")
 def marcpager(filename):
-    """Count records in file."""
+    """Page through records in file."""
     with open(filename, "rb") as marcfile:
         reader = pymarc.MARCReader(marcfile)
         text = "\n\n".join(str(rec) for rec in reader)
