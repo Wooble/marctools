@@ -72,7 +72,7 @@ def html_compare(file1, file2, outfile, matchpoint):
                 del data_2[rec_id]
             else:
                 out.write(
-                    difflib.HtmlDiff().make_table(
+                    difflib.HtmlDiff(wrapcolumn=85).make_table(
                         str(data_1[rec_id]).splitlines(), ["No match"], context=True
                     )
                 )
@@ -80,7 +80,7 @@ def html_compare(file1, file2, outfile, matchpoint):
             if rec_id == "problems":
                 continue
             out.write(
-                difflib.HtmlDiff().make_table(
+                difflib.HtmlDiff(wrapcolumn=85).make_table(
                     ["No match"], str(data_1[rec_id]).splitlines(), context=True
                 )
             )
@@ -88,7 +88,7 @@ def html_compare(file1, file2, outfile, matchpoint):
         for problem_type in data_1["problems"]:
             for rec in data_1["problems"][problem_type]:
                 out.write(
-                    difflib.HtmlDiff().make_table(
+                    difflib.HtmlDiff(wrapcolumn=85).make_table(
                         str(rec).splitlines(),
                         [f"PROBLEM: {problem_type}"],
                         context=True,
@@ -97,7 +97,7 @@ def html_compare(file1, file2, outfile, matchpoint):
         for problem_type in data_2["problems"]:
             for rec in data_2["problems"][problem_type]:
                 out.write(
-                    difflib.HtmlDiff().make_table(
+                    difflib.HtmlDiff(wrapcolumn=85).make_table(
                         [f"PROBLEM: {problem_type}"],
                         str(rec).splitlines(),
                         context=True,
